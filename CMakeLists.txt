@@ -23,6 +23,15 @@ else()
     PROJECT(RapidJSON VERSION "${LIB_VERSION_STRING}" LANGUAGES CXX)
 endif()
 
+if (EMSCRIPTEN)
+    # Target C++ 17
+    set(CMAKE_CXX_STANDARD 17)
+    # Fully disable exceptions
+    add_compile_options(-fno-exceptions)
+    # Emscripten Strict Mode
+    add_compile_options(-s STRICT=1)
+endif()
+
 # compile in release with debug info mode by default
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "Choose the type of build, options are: Debug Release RelWithDebInfo MinSizeRel." FORCE)
