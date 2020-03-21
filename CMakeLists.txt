@@ -24,8 +24,6 @@ else()
 endif()
 
 if (EMSCRIPTEN)
-    # Target C++ 17
-    set(CMAKE_CXX_STANDARD 17)
     # Fully disable exceptions
     add_compile_options(-fno-exceptions)
     # Emscripten Strict Mode
@@ -46,11 +44,11 @@ option(RAPIDJSON_BUILD_TESTS "Build rapidjson perftests and unittests." OFF)
 option(RAPIDJSON_BUILD_THIRDPARTY_GTEST
     "Use gtest installation in `thirdparty/gtest` by default if available" OFF)
 
-option(RAPIDJSON_BUILD_CXX11 "Build rapidjson with C++11 (gcc/clang)" ON)
-if(RAPIDJSON_BUILD_CXX11)
-    set(CMAKE_CXX_STANDARD 11)
-    set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
-endif()
+#option(RAPIDJSON_BUILD_CXX11 "Build rapidjson with C++11 (gcc/clang)" ON)
+#if(RAPIDJSON_BUILD_CXX11)
+#    set(CMAKE_CXX_STANDARD 11)
+#    set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+#endif()
 
 option(RAPIDJSON_BUILD_ASAN "Build rapidjson with address sanitizer (gcc/clang)" OFF)
 option(RAPIDJSON_BUILD_UBSAN "Build rapidjson with undefined behavior sanitizer (gcc/clang)" OFF)
